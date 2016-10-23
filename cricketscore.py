@@ -21,12 +21,15 @@ def totalMatch(baseUrl,county):
 		res = soup.find_all("div",class_="match-info")
 		dat = res[0].text.split()
 		testMatch = dat[1].split('-') #checking for test match
-		matchDate = str(dat[2])+'-'+str(month[dat[0]])+'-'+str(dat[1])
-		# matchDate = str(matchDate)
+		if(len(testMatch)>1):
+			matchDate=matchDate = str(dat[2])+'-'+str(month[dat[0]])+'-'+str(testMatch[1])
+		else:
+			matchDate = str(dat[2])+'-'+str(month[dat[0]])+'-'+str(dat[1])
 		today = time.strftime('%Y-%m-%d')
-		if matchDate<today and len(testMatch)<2:   # check if the match is over and is not a test match
+		if matchDate<today:   # check if the match is over and is not a test match
 			victory = soup.find_all("div",class_="match-status")
-			print("Match Summary\n",victory[0].text.strip())
+			print("Latest Match Summary played on ",matchDate,"\n"," ".join(soup.find_all('div',class_='innings-info-1')[0].text.split()),"  ",
+				" ".join(soup.find_all('div',class_='innings-info-2')[0].text.split()),victory[0].text.strip())
 			sys.exit()
 		else:
 			for i,j in enumerate(result):
