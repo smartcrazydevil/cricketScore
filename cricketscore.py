@@ -1,3 +1,8 @@
+'''
+author: Sujit Kumar
+email : sujit.kumar731@gmail.com
+'''
+
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import subprocess
