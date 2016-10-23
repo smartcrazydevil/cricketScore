@@ -1,5 +1,6 @@
 # cricketScore
 This Python Script will show the desktop notification on ubuntu of current cricket match
+This notification is only for Linux based system
 Gets the data from espncricinfo.com
 Search the Current Match based of country
 you need to install beautifulsoup in order run this script
